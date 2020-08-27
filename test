@@ -1,0 +1,8 @@
+//Zachary Scholefield
+
+What does this statement mean:
+git push origin master
+
+The word origin is a nickname for the remote repository. 
+The command explicitly says we want to push the changes 
+to the master branch of the origin.
