@@ -1,9 +1,9 @@
 WORD= g++ -Wall
 
-all: wordSummer1
+all: lab1
 
 clean: 
-	rm -f wordSummer* *.o
+	rm -f lab1 *.o
 
-wordSummer1: summer1.cpp $(REQUIRED)
-	$(WORD) -o wordSummer1 summer1.cpp
+lab1: lab1.cpp $(REQUIRED)
+	$(WORD) -o lab1 lab1.cpp
