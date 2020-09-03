@@ -59,8 +59,7 @@ int main(int argc, char *argv[]) {
         }
         else {
             cout << word << " - FALSE" << endl;
-        }
-        
+        }        
     }
     return 0;
 #endif                               
