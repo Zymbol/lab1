@@ -1,9 +1,10 @@
-WORD= g++ -Wall
+all: lab1 lab1_test
 
-all: lab1
+lab1: lab1.cpp
+	g++ -Wall lab1.cpp -o lab1
 
-clean: 
-	rm -f lab1 *.o
+lab1_test:
+	g++ -Wall lab1.cpp -o lab1_test -D UNIT_TEST
 
-lab1: lab1.cpp $(REQUIRED)
-	$(WORD) -o lab1 lab1.cpp
+clean:
+	rm -f lab1 lab1_test *.o

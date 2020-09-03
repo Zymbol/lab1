@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 bool checkWord(string word) {
@@ -28,23 +28,42 @@ bool tripleCheck(string word) {
     return check;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     string word;
     bool tripleLet = 0;
     bool doubleLet = 0;                                  
-    bool loop = 0;
-    
-#ifdef UNIT_TEST
-    testfile.open("uTestFile.txt");
-    while(!testfile.eof()) {
-        loop = 0;
-        trip
-    
+    bool loop = 0;  
+    ifstream uTestFile;
+
+    #ifdef UNIT_TEST 
+    cout << "\nINITIALIZING TEST!!!\n\n";
+    uTestFile.open("uTestFile.txt");
+    while (!uTestFile.eof()){                    
+        bool loop = 0;
+        bool tripleLet = 0;
+        getline(uTestFile, word);
+        loop = checkWord(word);
+
+        if (uTestFile.eof()) {
+            break;
+        }
+        if (loop == 1) {
+            tripleLet = tripleCheck(word);
+            if (tripleLet == 1){
+                cout << word << " - FALSE if just looking for double letters." << endl;
+            }
+            else {
+                cout << word << " - TRUE" << endl;
+           // return 0;
+            }        
+        }
+        else {
+            cout << word << " - FALSE" << endl;
+        }
+        
     }
- 
-
-
-#endif
+    return 0;
+#endif                               
     while(doubleLet == 0 || tripleLet == 1) {
         cout << "Please enter a word: " << endl;   
         cin >> word;                               
