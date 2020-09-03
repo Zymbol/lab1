@@ -1,22 +1,14 @@
 //Zachary Scholefield
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <string>
 #include <iostream>
-#include <cstring>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
+using namespace std;
 
-bool checkWord(string word)                         //checkWord function
-{
-    bool check = 0;                                 //declare bool check is false
+bool checkWord(string word) {
+    bool check = 0;                                 
     for(unsigned int i = 0; i < word.length() - 1; i++)
-    {                                               //for loop
+    {                                               
         if(word[i] == word[i+1])
         {
             check = 1;
@@ -25,24 +17,53 @@ bool checkWord(string word)                         //checkWord function
     }
     return check;
 }
-
-int main()
-{
-    string word;                                    //declaring word variable.
-    bool loop = 0;                                  //priming bool loop to false.
-    while(loop == 0)                                //while loop is false.
-    {
-        cout << "Please enter a word: " << endl;    //print prompt. 
-        cin >> word;                                //take user input and store it in word variable.
-        loop = checkWord(word);                     //take the results of checkword function and store it in loop.
-        
-        if (loop == 0)                              //if still false repeat while loop.
-        {
-            cout << "Try another word; however, this time enter a word with double letters. " << endl;
-            cout << "i.e. school, class, room." << endl;
+bool tripleCheck(string word) {
+    bool check = 0;                                
+    for(unsigned int i = 0; i < word.length() - 2; i++){
+        if(word[i] == word[i+1] && word[i] == word[i+2]) {
+            check = 1;
+            break;
         }
     }
+    return check;
+}
 
-    cout << "Awesome! " << word << " is a double-lettered word! Thank you! " << endl;
+int main() {
+    string word;
+    bool tripleLet = 0;
+    bool doubleLet = 0;                                  
+    bool loop = 0;
+    
+#ifdef UNIT_TEST
+    testfile.open("uTestFile.txt");
+    while(!testfile.eof()) {
+        loop = 0;
+        trip
+    
+    }
+ 
+
+
+#endif
+    while(doubleLet == 0 || tripleLet == 1) {
+        cout << "Please enter a word: " << endl;   
+        cin >> word;                               
+        loop = checkWord(word);                    
+        if (loop == 1) {
+            tripleLet = tripleCheck(word);
+            if (tripleLet == 1){
+                cout << word << " has more than double letters." << endl;
+            }
+            else {
+                cout << word << " has double letters!" << endl;
+            return 0;
+            }        
+        }
+        else {
+            cout << word << " doesn't have double letters." << endl;
+            cout << "Try inputing a word with double letters." << endl;
+            cout << "i.e. School, Vacuum, Skiing..." << endl;
+        }               
+    }
     return 0;
 }
