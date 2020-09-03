@@ -7,8 +7,7 @@ using namespace std;
 
 bool checkWord(string word) {
     bool check = 0;                                 
-    for(unsigned int i = 0; i < word.length() - 1; i++)
-    {                                               
+    for(unsigned int i = 0; i < word.length() - 1; i++) {                                               
         if(word[i] == word[i+1])
         {
             check = 1;
@@ -17,9 +16,10 @@ bool checkWord(string word) {
     }
     return check;
 }
+
 bool tripleCheck(string word) {
     bool check = 0;                                
-    for(unsigned int i = 0; i < word.length() - 2; i++){
+    for(unsigned int i = 0; i < word.length() - 2; i++) {
         if(word[i] == word[i+1] && word[i] == word[i+2]) {
             check = 1;
             break;
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     bool loop = 0;  
     ifstream uTestFile;
 
-    #ifdef UNIT_TEST 
+#ifdef UNIT_TEST 
     cout << "\nINITIALIZING TEST!!!\n\n";
     uTestFile.open("uTestFile.txt");
     while (!uTestFile.eof()){                    
@@ -64,7 +64,8 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 #endif                               
-    while(doubleLet == 0 || tripleLet == 1) {
+
+    while (doubleLet == 0 || tripleLet == 1) {
         cout << "Please enter a word: " << endl;   
         cin >> word;                               
         loop = checkWord(word);                    
